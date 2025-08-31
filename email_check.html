@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Breach Check</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📧 Email Breach Checker</h1>
+        <form method="POST">
+            <input type="email" name="email" placeholder="Enter email address" required>
+            <button type="submit">Check Email</button>
+        </form>
+
+        {% if result %}
+            <p class="result {% if 'NOT found' in result %}good{% else %}bad{% endif %}">
+                {{ result }}
+            </p>
+        {% endif %}
+
+        <a href="/" class="button-link">⬅ Back to Password Check</a>
+    </div>
+</body>
+</html>

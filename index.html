@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Breach Check</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Real-Time Data Breach Alert System</h1>
+        <form method="POST">
+            <input type="password" name="password" placeholder="Enter password" required>
+            <button type="submit">Check Password</button>
+        </form>
+
+        {% if result %}
+            <p class="result {% if 'NOT found' in result %}good{% else %}bad{% endif %}">
+                {{ result }}
+            </p>
+        {% endif %}
+
+        <a href="/jtr-demo" class="button-link">🔓 Run John the Ripper Demo</a>
+        <a href="/email-check" class="button-link">📧 Check Email Breach</a>
+
+    </div>
+</body>
+</html>
